@@ -1,5 +1,6 @@
 const Slider = document.getElementById('slider');
 let mainImage = document.querySelector(".main-sect");
+let mainSide = document.querySelector(".side-sect");
 const imagesArray = [
     'img/01.jpg',
     'img/02.jpg',
@@ -23,7 +24,6 @@ const subtitles = [
 ]
 let currentIndex = 0;
  for(let i = 0; i < imagesArray.length; i++){
-    mainImage
     mainImage.innerHTML += `
         <div class="main">
             <img src="${imagesArray[i]}" alt="">
@@ -33,8 +33,20 @@ let currentIndex = 0;
     `;
 
  };
+
+ for(let i = 0; i < imagesArray.length; i++){
+    mainSide.innerHTML += `
+        <div class="side">
+            <img class="img filter" src="${imagesArray[i]}" alt="">
+        </div>  
+    `;
+
+ };
  const showImage = document.getElementsByClassName("main");
+ const filterImage = document.getElementsByClassName("img");
  showImage[currentIndex].classList.add("show");
+ filterImage[currentIndex].classList.remove("filter");
+ filterImage[currentIndex].classList.add("border");
 
 const down = document.getElementById("down");
     down.addEventListener("click", giu);
@@ -48,15 +60,26 @@ up.addEventListener("click", su);
 
 function giu(){
       showImage[currentIndex].classList.remove("show");
+      filterImage[currentIndex].classList.add("filter");
+      filterImage[currentIndex].classList.remove("border");
         currentIndex++;
         if(currentIndex > 4){
             currentIndex = 0;
         }
-        showImage[currentIndex].classList.add("show");  
+        showImage[currentIndex].classList.add("show");
+        filterImage[currentIndex].classList.remove("filter");
+        filterImage[currentIndex].classList.add("border");  
 }
 function su(){
     showImage[currentIndex].classList.remove("show");
+    filterImage[currentIndex].classList.add("filter");
+    filterImage[currentIndex].classList.remove("border");
     currentIndex--;
+    if(currentIndex < 0){
+        currentIndex = 4;
+    }
     showImage[currentIndex].classList.add("show");
+    filterImage[currentIndex].classList.remove("filter");
+    filterImage[currentIndex].classList.add("border");  
 }
  Slider.append(mainImage);
