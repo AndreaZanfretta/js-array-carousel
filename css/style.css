@@ -5,7 +5,7 @@
 }
 #slider{
     height: 50vh;
-    width: 900px;
+    width: 1200px;
     /* margin: 100px auto; */
     position: absolute;
     top: 50%;
@@ -25,7 +25,7 @@
 }
 
 .main img{
-    width: 81%;
+    width: 85%;
     height: 100%;
     position: absolute;
     top: 0;
@@ -84,7 +84,7 @@
 }
 .side-sect .side{
     height: calc(100% / 5);
-    width: 171px;
+    width: 180px;
 }
 
 .side-sect .side img{
